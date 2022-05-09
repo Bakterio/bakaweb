@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def test(request):
-    return HttpResponse("test")
+    return render(request, 'bakaweb_app/index.html')
