@@ -1,14 +1,18 @@
 {% extends 'bakaweb_app/super.html' %}
 {% block content %}
-<div class="border-red-500 bg-red-400 border-2 rounded w-fit m-3 p-2 px-8 flex-col">
+<div class="border-red-500 bg-red-400 border-2 rounded w-fit m-3 p-2 px-8">
     <form method="post"> {% csrf_token %}
         <label for="url">School url:</label><br>
-        <input type="text" id="url" name="url"><br>
+        <input type="text" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max"><br>
         <label for="user">Username:</label><br>
-        <input type="text" id="user" name="user"><br>
+        <input type="text" id="user" name="user" placeholder="zbynda_hamernik123"><br>
         <label for="pw">Password</label><br>
         <input type="password" id="pw" name="pw"><br>
         <input class="bg-blue-500 p-2 rounded-xl border-blue-800" type="submit" value="Login">
     </form>
+</div>
+
+<div>
+    <p>{{ out }}</p>
 </div>
 {% endblock content %}
