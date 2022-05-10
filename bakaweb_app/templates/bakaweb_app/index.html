@@ -1,4 +1,14 @@
 {% extends 'bakaweb_app/super.html' %}
 {% block content %}
-<p class="text-green-500 font-bold underline">test</p>
+<div class="border-red-500 bg-red-400 border-2 rounded w-fit m-3 p-2 px-8 flex-col">
+    <form method="post"> {% csrf_token %}
+        <label for="url">School url:</label><br>
+        <input type="text" id="url" name="url"><br>
+        <label for="user">Username:</label><br>
+        <input type="text" id="user" name="user"><br>
+        <label for="pw">Password</label><br>
+        <input type="password" id="pw" name="pw"><br>
+        <input class="bg-blue-500 p-2 rounded-xl border-blue-800" type="submit" value="Login">
+    </form>
+</div>
 {% endblock content %}
