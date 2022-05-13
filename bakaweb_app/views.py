@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
-from . import api
+from .api import BakConnection
 
 # Create your views here.
 class IndexView(generic.TemplateView):
@@ -9,7 +9,6 @@ class IndexView(generic.TemplateView):
 
     def post(self, request):
         input = request.POST
-        token = api.get_token(input['url'], input['user'], input['pw'])
-        data = api.znamky(input['url'], token)
         #   return render(request, self.template_name, {"out": api.znamky(input['url'], token)})
-        return HttpResponse(data)
+        connection = BakConnection(input['url'], input['user'], input['pw'])
+        return HttpResponse(connection.marks())
