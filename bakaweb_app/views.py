@@ -9,6 +9,5 @@ class IndexView(generic.TemplateView):
 
     def post(self, request):
         input = request.POST
-        #   return render(request, self.template_name, {"out": api.znamky(input['url'], token)})
         connection = BakConnection(input['url'], input['user'], input['pw'])
-        return HttpResponse(connection.marks())
+        return render(request, self.template_name, {"subjects": connection.marks()})

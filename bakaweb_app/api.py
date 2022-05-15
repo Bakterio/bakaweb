@@ -17,7 +17,7 @@ class BakConnection():
         print(r.status_code)
         self.token = r.json()["access_token"]
 
-    def marks(self) -> str:
+    def marks(self):
         r = requests.get(
             url = self.url + '/api/3/marks',
             headers={

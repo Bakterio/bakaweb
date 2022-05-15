@@ -12,7 +12,16 @@
     </form>
 </div>
 
-<div>
-    <p>{{ out }}</p> # TODO pretty známky :D
-</div>
+{% if subjects != None %}
+    {% for subject in subjects %}
+        <h3>{{ subject.Subject.Name }}</h3>
+        {% for mark in subject.Marks %}
+            <p>{{ mark.Caption }}</p>
+            <p>{{ mark.MarkText }}</p>
+            <hr>
+            <br>
+        {% endfor %}
+        <br><br>
+    {% endfor %}
+{% endif %}
 {% endblock content %}
