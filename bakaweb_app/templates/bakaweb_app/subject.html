@@ -1,0 +1,14 @@
+<div class="bg-green-400 border border-green-600 flex">
+    <div>
+        <p class="font-bold text-center text-3xl">{{ subject.Subject.Name }}</p>
+        <p>{{ subject.AverageText }}</p>
+    </div>
+    <div class="flex flex-row-reverse">
+        {% for mark in subject.Marks %}
+            <div class="border-4 p-2">
+                <p class="font-bold">{{ mark.Caption }} - {{ mark.Theme }}</p>
+                <p>{{ mark.MarkText }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>

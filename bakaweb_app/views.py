@@ -10,4 +10,5 @@ class IndexView(generic.TemplateView):
     def post(self, request):
         input = request.POST
         connection = BakConnection(input['url'], input['user'], input['pw'])
-        return render(request, self.template_name, {"subjects": connection.marks()})
+        if (connection != None):
+            return render(request, self.template_name, {"subjects": connection.marks()})

@@ -8,20 +8,15 @@
         <input type="text" id="user" name="user" placeholder="zbynda_hamernik123"><br>
         <label for="pw">Password</label><br>
         <input type="password" id="pw" name="pw"><br>
-        <input class="bg-blue-500 p-2 rounded-xl border-blue-800" type="submit" value="Login">
+        <div class="items-center">
+            <input class="bg-blue-500 p-2 rounded-xl border-blue-800" type="submit" value="Login">
+        </div>
     </form>
 </div>
 
 {% if subjects != None %}
     {% for subject in subjects %}
-        <h3>{{ subject.Subject.Name }}</h3>
-        {% for mark in subject.Marks %}
-            <p>{{ mark.Caption }}</p>
-            <p>{{ mark.MarkText }}</p>
-            <hr>
-            <br>
-        {% endfor %}
-        <br><br>
+        {% include 'bakaweb_app/subject.html' with subject=subject %}
     {% endfor %}
 {% endif %}
 {% endblock content %}
