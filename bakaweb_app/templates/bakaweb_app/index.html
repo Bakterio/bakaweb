@@ -9,7 +9,7 @@
         <label for="pw">Password</label><br>
         <input type="password" id="pw" name="pw"><br>
         <div class="items-center">
-            <input class="bg-blue-500 p-2 rounded-xl border-blue-800" type="submit" value="Login">
+            <input class="bg-blue-500 p-2 rounded-xl border-blue-800" type="submit" value="Login" on_click:"test()">
         </div>
     </form>
 </div>
@@ -20,3 +20,8 @@
     {% endfor %}
 {% endif %}
 {% endblock content %}
+
+{% block js_block %}
+    {% load static %}
+    <script type="text/javascript" src="{% static 'bakaweb_app/js/wrong_pw.js' %}"</script>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'bakaweb_app/super.html' %}
+{% block content %}
+<button class="bg-blue-600 border border-blue-900" onclick="test()">Click!!!</button>
+{% endblock content %}
+{% block js_block %}
+    {% load static %}
+    <script type="text/javascript" src="{% static 'bakaweb_app/js/test.js' %}"></script>
+{% endblock js_block %}

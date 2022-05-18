@@ -12,3 +12,6 @@ class IndexView(generic.TemplateView):
         connection = BakConnection(input['url'], input['user'], input['pw'])
         if (connection != None):
             return render(request, self.template_name, {"subjects": connection.marks()})
+
+def test(request):
+    return render(request, 'bakaweb_app/test.html')
