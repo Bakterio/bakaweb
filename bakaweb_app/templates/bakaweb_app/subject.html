@@ -6,8 +6,9 @@
     <div class="flex flex-row-reverse">
         {% for mark in subject.Marks %}
             <div class="border-4 p-2">
-                <p class="font-bold">{{ mark.Caption }} - {{ mark.Theme }}</p>
-                <p>{{ mark.MarkText }}</p>
+                <p class="font-bold">{{ mark.Caption }}</p>
+                <p>{{ mark.Theme }}</p>
+                <p class="text-red-600">{{ mark.MarkText }}</p>
             </div>
         {% endfor %}
     </div>
