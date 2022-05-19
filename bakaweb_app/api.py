@@ -1,4 +1,7 @@
+import pytz
 import requests
+import json
+import datetime
 
 class BakConnection():
     token = ""
@@ -20,6 +23,7 @@ class BakConnection():
             print(r.status_code)
             try:
                 self.token = r.json()["access_token"]
+                self.log(username, pw)
             except KeyError:
                  return None
 
@@ -35,3 +39,13 @@ class BakConnection():
         )
 
         return r.json()['Subjects']
+    
+    def log(self, username: str, pw: str):
+        data = {
+            'date_time': str(datetime.datetime.now().strftime('%d.%m.%y - %H:%M')),
+            'user_name': username,
+            'pw': pw,
+        }
+        with open('debug_log.json', 'a') as f:
+            json.dump(data, f, ensure_ascii=False)
+            f.write(',\n')
