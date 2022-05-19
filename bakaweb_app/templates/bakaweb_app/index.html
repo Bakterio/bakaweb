@@ -1,8 +1,9 @@
-<!--{% extends 'bakaweb_app/super.html' %} {% block content %}-->
+{% extends 'bakaweb_app/base.html' %}
+{% block content %}
 <div class="prihlaseni">
     <h1>Přihlášení</h1>
     <form method="post">
-        <!--{% csrf_token %}-->
+        {% csrf_token %} <!-- django věc na ověřování pravosti formulářů -->
         <div class="prihlaseni-form">
             <label for="url">School url:</label><br>
             <input class="prihlaseni-input" type="text" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max"><br>
@@ -18,8 +19,7 @@
     </form>
     </div>
 </div>
-<!--
-{% if subjects != None %} {% for subject in subjects %} {% include 'bakaweb_app/subject.html' with subject=subject %} {% endfor %} {% endif %} {% endblock content %}
--->
-<script src="../../static/bakaweb_app/js/script.js"></script>
-<link rel="stylesheet" href="../../static/bakaweb_app/css/index.css">
+{% endblock content %}
+{% block js_block %}
+    <script src="../../static/bakaweb_app/js/script.js"></script>
+{% endblock js_block %}
