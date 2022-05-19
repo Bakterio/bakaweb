@@ -1,4 +1,4 @@
-import pytz
+#import pytz
 import requests
 import json
 import datetime
@@ -23,7 +23,7 @@ class BakConnection():
             print(r.status_code)
             try:
                 self.token = r.json()["access_token"]
-                self.log(username, pw)
+                #self.log(username, pw)
             except KeyError:
                  return None
 
