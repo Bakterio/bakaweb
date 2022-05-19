@@ -27,7 +27,8 @@ input[type=password]:focus {
 }
 
 .prihlaseni input[type=text],
-input[type=password] {
+input[type=password],
+input[type=url] {
     border: 0px solid white;
     border-bottom: 2px var(--zelena) solid;
     height: 10%;

@@ -12,7 +12,7 @@ class IndexView(generic.TemplateView):
         input = request.POST
         connection = BakConnection(input['url'], input['user'], input['pw'])
         if (connection != None):
-            return render(request, self.template_name, {"subjects": connection.marks()})
+            return render(request, 'bakaweb_app/marks.html', {"subjects": connection.marks()})
 
 def test(request):
     form = LoginForm(request.POST or None)
