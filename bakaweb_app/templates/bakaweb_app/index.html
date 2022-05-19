@@ -1,27 +1,25 @@
-{% extends 'bakaweb_app/base.html' %}
-{% block content %}
-<div class="border-red-500 bg-red-400 border-2 rounded w-fit m-3 p-2 px-8">
-    <form method="post"> {% csrf_token %}
-        <label for="url">School url:</label><br>
-        <input type="text" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max"><br>
-        <label for="user">Username:</label><br>
-        <input type="text" id="user" name="user" placeholder="zbynda_hamernik123"><br>
-        <label for="pw">Password</label><br>
-        <input type="password" id="pw" name="pw"><br>
-        <div class="items-center">
-            <input class="bg-blue-500 p-2 rounded-xl border-blue-800" type="submit" value="Login" on_click:"test()">
-        </div>
+<!--{% extends 'bakaweb_app/super.html' %} {% block content %}-->
+<div class="prihlaseni">
+    <h1>Přihlášení</h1>
+    <form method="post">
+        <!--{% csrf_token %}-->
+        <div class="prihlaseni-form">
+            <label for="url">School url:</label><br>
+            <input class="prihlaseni-input" type="text" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max"><br>
+            <label for="user">Username:</label><br>
+            <input class="prihlaseni-input" type="text" id="user" name="user" placeholder="zbynda_hamernik123"><br>
+            <label for="pw">Password</label><br>
+            <input class="prihlaseni-input heslo" id="password-input" type="password" id="pw" name="pw"><br>
+            <input class="ZobrazeniHesla" style="border: 1px #008b74 solid; background-color: #008b74; margin-bottom: 3%;" type="checkbox" onclick="ZmenTypInputu()"> Zobrazit heslo
+
+            <div class="items-center">
+                <input type="submit" value="Login">
+            </div>
     </form>
+    </div>
 </div>
-
-{% if subjects != None %}
-    {% for subject in subjects %}
-        {% include 'bakaweb_app/subject.html' with subject=subject %}
-    {% endfor %}
-{% endif %}
-{% endblock content %}
-
-{% block js_block %}
-    {% load static %}
-    <script type="text/javascript" src="{% static 'bakaweb_app/js/wrong_pw.js' %}"</script>
-{% endblock %}
+<!--
+{% if subjects != None %} {% for subject in subjects %} {% include 'bakaweb_app/subject.html' with subject=subject %} {% endfor %} {% endif %} {% endblock content %}
+-->
+<script src="../../static/bakaweb_app/js/script.js"></script>
+<link rel="stylesheet" href="../../static/bakaweb_app/css/index.css">
