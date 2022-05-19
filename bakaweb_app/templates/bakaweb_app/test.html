@@ -1,6 +1,14 @@
 {% extends 'bakaweb_app/base.html' %}
 {% block content %}
 <button class="bg-blue-600 border border-blue-900" onclick="test()">Click!!!</button>
+<div id="alert-div">
+    <p>ha ha</p>
+</div>
+<form id="p-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-blue-800 text-white" onclick="send()">Send</button>
+</form>
 {% endblock content %}
 {% block js_block %}
     {% load static %}

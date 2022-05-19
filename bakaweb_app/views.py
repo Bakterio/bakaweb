@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from .api import BakConnection
+from .forms import *
 
 # Create your views here.
 class IndexView(generic.TemplateView):
@@ -14,4 +15,5 @@ class IndexView(generic.TemplateView):
             return render(request, self.template_name, {"subjects": connection.marks()})
 
 def test(request):
-    return render(request, 'bakaweb_app/test.html')
+    form = LoginForm(request.POST or None)
+    return render(request, 'bakaweb_app/test.html', {'form': form})
