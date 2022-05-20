@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from django.views import generic
 from .api import BakConnection
 from .forms import *
@@ -10,10 +9,19 @@ class IndexView(generic.TemplateView):
 
     def post(self, request):
         input = request.POST
-        connection = BakConnection(input['url'], input['user'], input['pw'])
+        connection = BakConnection(input)
         if (connection != None):
-            return render(request, 'bakaweb_app/marks.html', {"subjects": connection.marks()})
+            for i in ('url', 'user', 'pw'):
+                request.session[i] = input[i]
+
+            return redirect('/marks')
 
 def test(request):
     form = LoginForm(request.POST or None)
     return render(request, 'bakaweb_app/test.html', {'form': form})
+
+def marks(request):
+    return render(request, 'bakaweb_app/marks.html', {'subjects': BakConnection(request.session).marks()})
+
+def timetable(request):
+    return render(request, 'bakaweb_app/timetable.html')

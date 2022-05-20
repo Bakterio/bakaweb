@@ -6,7 +6,7 @@
         {% csrf_token %} <!-- django věc na ověřování pravosti formulářů -->
         <div class="prihlaseni-form">
             <label for="url">School url:</label><br>
-            <input class="prihlaseni-input" type="text" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max" required><br>
+            <input class="prihlaseni-input" type="url" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max" required><br>
             <label for="user">Username:</label><br>
             <input class="prihlaseni-input" type="text" id="user" name="user" placeholder="zbynda_hamernik123" required><br>
             <label for="pw">Password:</label><br>
@@ -21,5 +21,6 @@
 </div>
 {% endblock content %}
 {% block js_block %}
-    <script src="../../static/bakaweb_app/js/script.js"></script>
+    {% load static %}
+    <script src="{% static 'bakaweb_app/js/script.js' %}"></script>
 {% endblock js_block %}

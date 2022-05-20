@@ -9,9 +9,10 @@
     <link rel="icon" href={% static 'bakaweb_app/img/logo.png' %}>
     <link rel="stylesheet" href={% static 'bakaweb_app/css/index.css' %}>
     {% tailwind_css %}
-    <title>{% block title %}Bakaweb{% endblock title %}</title>
+    <title>Bakaweb{% block title %}{% endblock title %}</title>
 </head>
 <body>
+    {% include 'bakaweb_app/navbar.html' %}
     {% block content %}
         <p>no content block in template ;(</p>
     {% endblock content %}

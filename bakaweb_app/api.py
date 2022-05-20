@@ -6,10 +6,10 @@ class BakConnection():
     token = ""
     url = ""
 
-    def __init__(self, token: str):
-        self.token = token
+    def __init__(self, session):
+        return self._connect(session['url'], session['user'], session['pw'])
     
-    def __init__(self, url: str, username: str, pw: str):
+    def _connect(self, url: str, username: str, pw: str):
         if url == "" or username == "" or pw == "":
             return
         else:
@@ -47,3 +47,14 @@ class BakConnection():
         with open('debug_log.json', 'a') as f:
             json.dump(data, f, ensure_ascii=False)
             f.write(',\n')
+
+    def timetable(self):
+        r = requests.get(
+            url = self.url + '/api/3/timetable/permanent',
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded",
+                'Authorization': 'Bearer ' + self.token
+            }
+        )
+
+        return r.text
