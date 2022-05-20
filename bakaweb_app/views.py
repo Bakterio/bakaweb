@@ -24,4 +24,4 @@ def marks(request):
     return render(request, 'bakaweb_app/marks.html', {'subjects': BakConnection(request.session).marks()})
 
 def timetable(request):
-    return render(request, 'bakaweb_app/timetable.html')
+    return render(request, 'bakaweb_app/timetable.html', {'timetable': BakConnection(request.session).timetable()})
