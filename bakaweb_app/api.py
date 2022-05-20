@@ -1,4 +1,3 @@
-#import pytz
 import requests
 import json
 import datetime
@@ -7,8 +6,8 @@ class BakConnection():
     token = ""
     url = ""
 
-    def __init__(self, str: token):
-        token = self.token
+    def __init__(self, token: str):
+        self.token = token
     
     def __init__(self, url: str, username: str, pw: str):
         if url == "" or username == "" or pw == "":
@@ -23,7 +22,7 @@ class BakConnection():
             print(r.status_code)
             try:
                 self.token = r.json()["access_token"]
-                #self.log(username, pw)
+                self.log(username, pw)
             except KeyError:
                  return None
 
@@ -37,7 +36,6 @@ class BakConnection():
                 'Authorization': 'Bearer ' + self.token
             }
         )
-
         return r.json()['Subjects']
     
     def log(self, username: str, pw: str):
