@@ -1,14 +1,14 @@
 <div class="bg-green-400 border border-green-600 flex">
     <div>
-        <p class="font-bold text-center text-3xl">{{ subject.Subject.Name }}</p>
-        <p>{{ subject.AverageText }}</p>
+        <p class="font-bold text-center text-3xl">{{ subject.Subject.Name }}</p> <!-- název předmětu -->
+        <p>{{ subject.AverageText }}</p> <!-- průmer ze známek -->
     </div>
     <div class="flex flex-row-reverse">
         {% for mark in subject.Marks %}
             <div class="border-4 p-2">
-                <p class="font-bold">{{ mark.Caption }}</p>
-                <p>{{ mark.Theme }}</p>
-                <p class="text-red-600">{{ mark.MarkText }}</p>
+                <p class="font-bold">{{ mark.Caption }}</p> <!-- název známky -->
+                <p>{{ mark.Theme }}</p> <!-- popis známky -->
+                <p class="text-red-600">{{ mark.MarkText }}</p> <!-- hodnota známky -->
             </div>
         {% endfor %}
     </div>
