@@ -1,6 +1,12 @@
+# Temp development files, notes
 /test.py
 /marks
+
+# Database and logging
 /debug_log.json
-/__pycache__
 /db.sqlite3
+
+# Pycache
+/__pycache__
 /bakaweb_app/__pycache__
+/bakaweb/__pycache__
