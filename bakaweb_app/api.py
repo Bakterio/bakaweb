@@ -57,11 +57,17 @@ class BakConnection():
             }
         )
         json = r.json()
+
         subjects = {}
         for s in json['Subjects']:
             subjects[s['Id']] = s['Name']
 
+        teachers = {}
+        for t in json['Teachers']:
+            teachers[t['Id']] = t['Name']
+
         return {
                 'timetable': json,
-                'subjects': subjects
+                'subjects': subjects,
+                'teachers': teachers,
                 }

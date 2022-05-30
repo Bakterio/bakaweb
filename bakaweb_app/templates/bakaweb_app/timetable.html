@@ -18,10 +18,15 @@
     {% for day in timetable.Days %}
     <tr>
         <td>{{ day.DayOfWeek }}</td>
-        {% for hour in day.Atoms %} <!-- decoding subject's name from its id -->
-            {% for id, name in subjects.items %}
+        {% for hour in day.Atoms %} 
+            {% for id, name in subjects.items %} <!-- decoding subject's name from its id -->
                 {% if id == hour.SubjectId %}
-                    <td>{{ name }}</td>
+                    <td>{{ name }}<br>
+                {% endif %}
+            {% endfor %}
+            {% for id, name in teachers.items %} <!-- decoding teacher's name from its id -->
+                {% if id == hour.TeacherId %}
+                    {{ name }}</td>
                 {% endif %}
             {% endfor %}
         {% endfor %}
