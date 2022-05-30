@@ -6,23 +6,23 @@
     <tr>
         <th></th>
         {% for hour in timetable.Hours %}
-            <th>{{ hour.Caption }}</th>
+            <th>{{ hour.Caption }}</th> <!-- class's id-->
         {% endfor %}
     </tr>
     <tr>
         <th></th>
         {% for hour in timetable.Hours %}
-            <th>{{ hour.BeginTime }} - {{ hour.EndTime }}</th>
+            <th>{{ hour.BeginTime }} - {{ hour.EndTime }}</th> <!-- times -->
         {% endfor %}
     </tr>
     {% for day in timetable.Days %}
     <tr>
         <td>{{ day.DayOfWeek }}</td>
-        {% for hour in day.Atoms %}
+        {% for hour in day.Atoms %} <!-- decoding subject's name from its id -->
             {% for id, name in subjects.items %}
-            {% if id == hour.SubjectId %}
-            <td>{{ name }}</td>
-            {% endif %}
+                {% if id == hour.SubjectId %}
+                    <td>{{ name }}</td>
+                {% endif %}
             {% endfor %}
         {% endfor %}
     </tr>
