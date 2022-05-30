@@ -1,5 +1,31 @@
 {% extends 'bakaweb_app/base.html' %}
 {% block title %} - rozvrh{% endblock title %}
 {% block content %}
-{{ timetable }}
+{{ timetable.hours }}
+<table class="tt-table">
+    <tr>
+        <th></th>
+        {% for hour in timetable.Hours %}
+            <th>{{ hour.Caption }}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th></th>
+        {% for hour in timetable.Hours %}
+            <th>{{ hour.BeginTime }} - {{ hour.EndTime }}</th>
+        {% endfor %}
+    </tr>
+    {% for day in timetable.Days %}
+    <tr>
+        <td>{{ day.DayOfWeek }}</td>
+        {% for hour in day.Atoms %}
+            {% for id, name in subjects.items %}
+            {% if id == hour.SubjectId %}
+            <td>{{ name }}</td>
+            {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
 {% endblock content %}

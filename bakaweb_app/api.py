@@ -56,5 +56,12 @@ class BakConnection():
                 'Authorization': 'Bearer ' + self.token
             }
         )
+        json = r.json()
+        subjects = {}
+        for s in json['Subjects']:
+            subjects[s['Id']] = s['Name']
 
-        return r.text
+        return {
+                'timetable': json,
+                'subjects': subjects
+                }

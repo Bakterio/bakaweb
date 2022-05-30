@@ -35,7 +35,7 @@ def marks(request):
 def timetable(request):
     if check_session(request):
         return redirect(reverse('baka'))
-    return render(request, 'bakaweb_app/timetable.html', {'timetable': BakConnection(request.session).timetable()})
+    return render(request, 'bakaweb_app/timetable.html', BakConnection(request.session).timetable())
 
 def logout(request):
     if check_session(request):
