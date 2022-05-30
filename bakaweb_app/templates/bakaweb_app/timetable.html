@@ -1,8 +1,9 @@
 {% extends 'bakaweb_app/base.html' %}
 {% block title %} - rozvrh{% endblock title %}
 {% block content %}
-{{ timetable.hours }}
-<table class="tt-table">
+<div class="timetable">
+<h1>Stálý rozvrh</h1>
+<table>
     <tr>
         <th></th>
         {% for hour in timetable.Hours %}
@@ -33,4 +34,5 @@
     </tr>
     {% endfor %}
 </table>
+</div>
 {% endblock content %}

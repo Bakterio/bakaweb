@@ -64,8 +64,14 @@ input[type=password]:focus {
 .heslo::after {}
 
 
-.tt-table {
+.timetable table {
+    color: red;
 }
 
-.tt-div {
+.timetable {
+    background-color: var(--zelena);
+}
+
+.timetable h1 {
+    color: green;
 }
