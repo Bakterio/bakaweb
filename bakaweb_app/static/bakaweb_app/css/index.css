@@ -27,8 +27,7 @@ input[type=password]:focus {
 }
 
 .prihlaseni input[type=text],
-input[type=password],
-input[type=url] {
+input[type=password] {
     border: 0px solid white;
     border-bottom: 2px var(--zelena) solid;
     height: 10%;
@@ -62,16 +61,3 @@ input[type=password]:focus {
 }
 
 .heslo::after {}
-
-
-.timetable table {
-    color: red;
-}
-
-.timetable {
-    background-color: var(--zelena);
-}
-
-.timetable h1 {
-    color: green;
-}

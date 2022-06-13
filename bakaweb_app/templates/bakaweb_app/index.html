@@ -1,15 +1,14 @@
-{% extends 'bakaweb_app/base.html' %}
-{% block content %}
+<!--{% extends 'bakaweb_app/super.html' %} {% block content %}-->
 <div class="prihlaseni">
     <h1>Přihlášení</h1>
     <form method="post">
-        {% csrf_token %} <!-- django věc na ověřování pravosti formulářů -->
+        <!--{% csrf_token %}-->
         <div class="prihlaseni-form">
             <label for="url">School url:</label><br>
-            <input class="prihlaseni-input" type="url" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max" required><br>
+            <input class="prihlaseni-input" type="text" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max"><br>
             <label for="user">Username:</label><br>
-            <input class="prihlaseni-input" type="text" id="user" name="user" placeholder="zbynda_hamernik123" required><br>
-            <label for="pw">Password:</label><br>
+            <input class="prihlaseni-input" type="text" id="user" name="user" placeholder="zbynda_hamernik123"><br>
+            <label for="pw">Password</label><br>
             <input class="prihlaseni-input heslo" id="password-input" type="password" id="pw" name="pw"><br>
             <input class="ZobrazeniHesla" style="border: 1px #008b74 solid; background-color: #008b74; margin-bottom: 3%;" type="checkbox" onclick="ZmenTypInputu()"> Zobrazit heslo
 
@@ -19,8 +18,8 @@
     </form>
     </div>
 </div>
-{% endblock content %}
-{% block js_block %}
-    {% load static %}
-    <script src="{% static 'bakaweb_app/js/script.js' %}"></script>
-{% endblock js_block %}
+<!--
+{% if subjects != None %} {% for subject in subjects %} {% include 'bakaweb_app/subject.html' with subject=subject %} {% endfor %} {% endif %} {% endblock content %}
+-->
+<script src="../../static/bakaweb_app/js/script.js"></script>
+<link rel="stylesheet" href="../../static/bakaweb_app/css/index.css">
