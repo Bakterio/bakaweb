@@ -10,3 +10,9 @@
 /__pycache__
 /bakaweb_app/__pycache__
 /bakaweb/__pycache__
+
+
+__pycache__
+
+*pyc
+#pro jistotu
