@@ -1,71 +1,25 @@
 {% extends 'bakaweb_app/base.html' %} {% block content %}
-<!-- 
-<script>
-    var ShowPasswordCheckbox = document.getElementById("password-input")
-    var PasswordEye = document.getElementById("PasswordEye")
-    var SlashPasswordEye = document.getElementById("SlashPasswordEye")
-    var idk = document.getElementsByClassName("fa-eye")
-    var idk2 = document.getElementsByClassName("fa-eye-slash")
-
-    function ZmenTypInputu() {
-        if (ShowPasswordCheckbox.type === "password") {
-            ShowPasswordCheckbox.type = "text";
-            console.log("1")
-                // idk.style.display = "block";
-                // idk2.style.display = "none";
-            idk.classList.add('displaynone')
-            console.log("2")
-        } else {
-            ShowPasswordCheckbox.type = "password";
-            // idk.style.display = "none";
-            // idk2.style.display = "block";
-        }
-    }
-</script> -->
-<!-- <div class="body"> -->
-<!-- <div class="prihlaseni">
-    <form method="post">
-        {% csrf_token %}
-        <div style="padding: 9px;">
-            <div style="position: absolute;top:0%;left:28%;padding:0%">
-                <h1 style="font-size: 2rem; color:white">Přihlášení</h1>
-            </div>
-            <input style="top: 20%;" type="url" id="url" name="url" value="">
-
-            <i style="color:white; position: absolute; top:63%;left:80%" class="fa-solid fa-eye fa-xl"></i>
-            <i style="display:none; color:white; position: absolute; top:63%;left:80%" class="fa-solid fa-eye-slash fa-xl"></i>
-            <i class="fa-solid fa-eye-slash"></i>
-            <input style="top: 40%;" type="text" id="user" name="user" value="hhhh">
-            <input style="top: 60%;" type="password" id="pw" name="pw" value="" class="PasswordInput">
-            <input type="submit" value="Přihlásit">-->
-
-<!-- <button style="background-color: rgba(255, 255, 255,0%); border:none; width:3em;height:3em; top:58%;left:78%;position:absolute" onclick="ShowPassword()" ></button> -->
-<!-- </div>
-    </form>
-</div>  -->
-
-<div class="prihlaseni">
-    <h1 style="position: absolute; font-size: 2rem; color: white; top: 2%; left: 25%;">Přihlášení</h1>
-    <i style="top: 23%; left:16%; color:white; position:absolute" class="fa-solid fa-link fa-xl"></i>
-    <input style="top: 20%;" type="url">
-    <i style="top: 43%; left:16%; color:white; position:absolute" class="fa-solid fa-user fa-xl"></i>
-    <input style="top: 40%;" type="text">
-    <i style="top: 63%; left:16%; color:white; position:absolute" class="fa-solid fa-key fa-xl"></i>
-    <input style="top: 60%;" type="password" id="password-input">
-    <button onclick="ZmenTypInputu()" style="background-color: rgba(0, 212, 255, 0%); border: 0px white solid; cursor: pointer; color: white; position: absolute; top: 63%; left: 80%; font-size: 1em;">
+<form method="post">
+    {% csrf_token %}
+    <div class="prihlaseni">
+        <h1 style="position: absolute; font-size: 2rem; color: white; top: 2%; left: 25%;">Přihlášení</h1>
+        <i style="top: 23%; left:16%; color:white; position:absolute" class="fa-solid fa-link fa-xl"></i>
+        <input style="top: 20%;" type="url" name="url">
+        <i style="top: 43%; left:16%; color:white; position:absolute" class="fa-solid fa-user fa-xl"></i>
+        <input style="top: 40%;" type="text" name="user">
+        <i style="top: 63%; left:16%; color:white; position:absolute" class="fa-solid fa-key fa-xl"></i>
+        <input style="top: 60%;" type="password" id="password-input" name="pw">
+        <button onclick="ZmenTypInputu()" style="background-color: rgba(0, 212, 255, 0%); border: 0px white solid; cursor: pointer; color: white; position: absolute; top: 63%; left: 80%; font-size: 1em;">
         <i class="fa-solid fa-eye fa-xl" id="PasswordEye" style="position: absolute;"></i>  
         <i class="fa-solid fa-eye-slash fa-xl" id="SlashPasswordEye" style="display: none; position: absolute;"></i>
     </button>
-    <input type="submit" value="Přihlásit">
-</div>
-
+        <input type="submit" value="Přihlásit">
+    </div>
+</form>
 
 <script>
     var ShowPasswordCheckbox = document.getElementById("password-input")
     var PasswordEye = document.getElementById("PasswordEye")
-    var SlashPasswordEye = document.getElementById("SlashPasswordEye")
-        // var idk = document.getElementsByClassName("fa-eye")
-        // var idk2 = document.getElementsByClassName("fa-eye-slash")
     var idk = PasswordEye.innerHTML;
     var idk2 = SlashPasswordEye.innerHTML;
 
@@ -85,122 +39,6 @@
 
 
 
-<!-- <style> 
-    .prihlaseni input[type=submit] {
-        position: absolute;
-        top: 80%;
-        left: 16%;
-        width: 72%;
-        height: 10%;
-        border-radius: 25px;
-        font-size: 120%;
-    }
-    
-    .prihlaseni {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: linear-gradient(132deg, rgb(3, 104, 75) 0.00%, rgb(33, 35, 34) 100.00%);
-        padding: 4%;
-        /* #087132 */
-        /*
-    
-    bzzackground: linear-gradient(132deg, rgb(3, 148, 108) 0.00%, rgb(33, 35, 34) 100.00%);
-    
-    bzackground-color #55efc4;
-    bzackground-image linear-gradient(315deg, #55efc4 0%, #000000 74%);
-    bzackground-color: #166d3b;
-    bzackground-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
-    background-color #55efc4;
-    background-image linear-gradient(315deg, #55efc4 0%, #000000 74%);	
-
-    bmackground-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
-    bzackground-color: #166d3b;
-    bzackground-image: linear-gradient(147deg, #166d3b 0%, #000000 74%);
-
-    background: linear-gradient(132deg, rgb(3, 148, 108) 0.00%, rgb(33, 35, 34) 100.00%);
-    */
-        height: 38%;
-        width: 11%;
-        border-radius: 3%;
-    }
-    
-    .prihlaseni input[type=text]:focus,
-    input[type=password]:focus,
-    input[type=url]:focus {
-        outline: 2px solid white;
-        border-bottom: 2px rgba(255, 255, 255, 0%) solid;
-        /*	bmmackground-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );*/
-    }
-    
-    .prihlaseni input[type=text],
-    input[type=password],
-    input[type=url] {
-        position: absolute;
-        border: 0px solid white;
-        border-bottom: 2px white solid;
-        background-color: rgba(0, 212, 255, 0%);
-        height: 6%;
-        width: 72%;
-        font-size: 1.5rem;
-        color: white;
-        text-align: left;
-        left: 16%;
-    }
-    
-    body {
-        margin: 0px;
-        padding: 0%;
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient( circle farthest-corner at -1% 57.5%, rgba(19, 170, 82, 1) 0%, rgba(0, 102, 43, 1) 90%);
-    }
-</style>-->
-<!-- /* background: linear-gradient(141deg, rgb(25, 126, 8) 0.00%, rgb(19, 125, 0) 100.00%); */ 
-    /* background-color: #63d471; */
-    /* background-image: linear-gradient(315deg, #63d471 0%, #2f5136 90.00%, #233329 100%); */
-    /* baackground: linear-gradient(132deg, rgb(125, 199, 144) 0.00%, rgb(11, 59, 23) 100.00%); */
-    /*
-    bmackground: linear-gradient(132deg, rgb(2, 28, 122) 0.00%, rgb(36, 83, 255) 100.00%);
-    bzackground: linear-gradient(132deg, rgb(3, 148, 108) 0.00%, rgb(33, 35, 34) 100.00%	
-    bmackground-color: #05e8ba;
-    bmackground-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
-    bzackground-color: #63d471;
-    bzackground-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
-    bmackground: linear-gradient(132deg, rgb(2, 108, 223) 0.00%, rgb(0, 246, 253) 100.00%);
-    bmackground: linear-gradient(132deg, rgb(0, 48, 143) 0.00%, rgb(0, 255, 255) 100.00%);
-    bmackground: linear-gradient(132deg, rgb(2, 28, 122) 0.00%, rgb(36, 83, 255) 100.00%);
-    bzackground: linear-gradient(141deg, rgb(73, 255, 41) 0.00%, rgb(19, 125, 0) 100.00%);
-    bmackground-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
-    bmackground: rgb(2,0,36);
-    bmackground: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
-0,212,255,1
-
-
-
-13, 89, 104	*/
-
- <div class="prihlaseni"> 
-    <h1>Přihlášení</h1>
-    <form method="post">
-        {% csrf_token %}
- django věc na ověřování pravosti formulářů 
- <div class="prihlaseni-form"> 
-            <label for="url">School url:</label><br>
-            <input class="prihlaseni-input" type="url" id="url" name="url" placeholder="https://gymberoun.bakalari.cz" class="w-max" required><br>
-            <label for="user">Username:</label><br>
-            <input class="prihlaseni-input" type="text" id="user" name="user" placeholder="zbynda_hamernik123" required><br>
-            <label for="pw">Password:</label><br>
-            <input class="prihlaseni-input heslo" id="password-input" type="password" id="pw" name="pw"><br>
-            <input class="ZobrazeniHesla" style="border: 1px #008b74 solid; background-color: #008b74; margin-bottom: 3%;" type="checkbox" onclick="ZmenTypInputu()"> Zobrazit heslo
-
-            <div class="items-center">
-                <input type="submit" value="Login">
-            </div>
-    </form>
-    </div>
-</div>-->
 {% endblock content %} {% block js_block %} {% load static %}
 <script src="{% static 'bakaweb_app/js/script.js' %}"></script>
 {% endblock js_block %}
