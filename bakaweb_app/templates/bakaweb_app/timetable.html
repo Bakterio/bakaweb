@@ -1,38 +1,78 @@
-{% extends 'bakaweb_app/base.html' %}
-{% block title %} - rozvrh{% endblock title %}
-{% block content %}
-<div class="timetable">
-<h1>Stálý rozvrh</h1>
-<table>
-    <tr>
-        <th></th>
-        {% for hour in timetable.Hours %}
-            <th>{{ hour.Caption }}</th> <!-- class's id-->
-        {% endfor %}
-    </tr>
-    <tr>
-        <th></th>
-        {% for hour in timetable.Hours %}
-            <th>{{ hour.BeginTime }} - {{ hour.EndTime }}</th> <!-- times -->
-        {% endfor %}
-    </tr>
-    {% for day in timetable.Days %}
-    <tr>
-        <td>{{ day.DayOfWeek }}</td>
-        {% for hour in day.Atoms %} 
-            {% for id, name in subjects.items %} <!-- decoding subject's name from its id -->
+<style>
+    body {
+        color: white;
+    }
+    
+    h1 {
+        color: white;
+        display: inline;
+        margin: 8px;
+    }
+    
+    tr,
+    td,
+    table,
+    th {
+        border: 2px solid white;
+        margin: 0%;
+        padding: 4px;
+        border-collapse: collapse;
+    }
+    
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+
+
+{% extends 'bakaweb_app/base.html' %} {% block title %} - rozvrh{% endblock title %} {% block content %}
+<div style="position: absolute; width: 100%; height: 100%; padding: 0%; margin: 0%;  background-image: radial-gradient( circle farthest-corner at -1% 57.5%, rgba(19, 170, 82, 1) 0%, rgba(0, 102, 43, 1) 90%);">
+
+    <div class="timetable">
+        <a href="">
+            <h1>Stálý rozvrh</h1>
+        </a>
+        <a href="{% url 'marks' %}">
+            <h1>Známky</h1>
+        </a>
+        <table>
+            <tr>
+                <th></th>
+                {% for hour in timetable.Hours %}
+                <th>{{ hour.Caption }}</th>
+                <!-- class's id-->
+                {% endfor %}
+            </tr>
+            <tr>
+                <th></th>
+                {% for hour in timetable.Hours %}
+                <th>{{ hour.BeginTime }} - {{ hour.EndTime }}</th>
+                <!-- times -->
+                {% endfor %}
+            </tr>
+            {% for day in timetable.Days %}
+            <!-- d-->
+            <tr>
+                <td>
+                    {{ day.DayOfWeek }}</td>
+                <!-- den-->
+
+                {% for hour in day.Atoms %} {% for id, name in subjects.items %}
+                <!-- decoding subject's name from its id -->
                 {% if id == hour.SubjectId %}
-                    <td>{{ name }}<br>
-                {% endif %}
+                <td>{{ name }}<br> {% endif %} {% endfor %} {% for id, name in teachers.items %}
+                    <!-- decoding teacher's name from its id -->
+                    {% if id == hour.TeacherId %} {{ name }}</td>
+                {% endif %} {% endfor %} {% endfor %}
+            </tr>
             {% endfor %}
-            {% for id, name in teachers.items %} <!-- decoding teacher's name from its id -->
-                {% if id == hour.TeacherId %}
-                    {{ name }}</td>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
+        </table>
+    </div>
 </div>
 {% endblock content %}
