@@ -21,7 +21,7 @@ class IndexView(generic.TemplateView):
             for i in ('url', 'user', 'pw'):
                 request.session[i] = input[i]
 
-        return redirect(reverse('marks'))
+        return redirect(reverse('timetable'))
 
 def test(request):
     form = LoginForm(request.POST or None)

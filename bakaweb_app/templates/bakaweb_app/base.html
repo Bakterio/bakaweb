@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load tailwind_tags %}
-{% load static %}
+<!-- {% load tailwind_tags %} {% load static %} -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href={% static 'bakaweb_app/img/logo.png' %}>
     <link rel="stylesheet" href={% static 'bakaweb_app/css/index.css' %}>
-    {% tailwind_css %}
+    <script src="https://kit.fontawesome.com/f71751fc27.js" crossorigin="anonymous"></script>
     <title>{% block title %}Bakaweb{% endblock title %}</title>
 </head>
+
 <body>
     {% block content %}
-        <p>no content block in template ;(</p>
-    {% endblock content %}
-    {% block js_block %}
-    {% endblock js_block %}
+    <p>no content block in template ;(</p>
+    {% endblock content %} {% block js_block %} {% endblock js_block %}
 </body>
+
 </html>
